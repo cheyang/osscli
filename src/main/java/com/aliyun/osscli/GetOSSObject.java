@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-03 23:44:53
+* @Last Modified time: 2019-10-03 23:49:00
 */
 
 
@@ -72,7 +72,7 @@ public class GetOSSObject {
             OSSObject object = ossClient.getObject(bucketName, key);
             System.out.println("Download time in ms = "+(System.currentTimeMillis()-start));
             System.out.println("Content-Type: "  + object.getObjectMetadata().getContentType());
-            System.out.println("Size: "+object.getObjectMetadata().getSize());
+            System.out.println("Size: "+ object.getObjectMetadata().getContentLength());
 
 
         } catch (OSSException oe) {
