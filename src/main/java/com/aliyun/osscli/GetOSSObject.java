@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-03 23:42:44
+* @Last Modified time: 2019-10-03 23:44:53
 */
 
 
@@ -50,7 +50,7 @@ public class GetOSSObject {
         accessKeySecret = System.getenv("KEY_SECRET");
 
 
-        if args.length < 2{
+        if (args.length < 2){
             System.out.Println("Please input the bucket name and key.");
             return;
         }
