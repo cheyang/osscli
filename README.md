@@ -12,6 +12,7 @@ mvn archetype:generate -DgroupId=com.aliyun.osscli -DartifactId=osscli -Darchety
 ```
 mvn compile
 mvn package
+mvn  -T 2C clean install
 ```
 
 3.测试Hello
