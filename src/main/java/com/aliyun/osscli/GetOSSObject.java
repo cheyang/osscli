@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-03 23:49:00
+* @Last Modified time: 2019-10-03 23:51:40
 */
 
 
@@ -51,7 +51,7 @@ public class GetOSSObject {
 
 
         if (args.length < 2){
-            System.out.Println("Please input the bucket name and key.");
+            System.out.println("Please input the bucket name and key.");
             return;
         }
 
