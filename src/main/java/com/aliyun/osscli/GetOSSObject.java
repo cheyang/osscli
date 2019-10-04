@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-04 12:15:03
+* @Last Modified time: 2019-10-04 12:15:35
 */
 
 
@@ -102,7 +102,7 @@ public class GetOSSObject {
             // System.out.println("Size: "+ object.getObjectMetadata().getContentLength());
             System.out.println("Content-Type: "  + meta.getContentType());
             System.out.println("Size: "+ meta.getContentLength());
-            System.out.println("Dump to file:"+file.getPath())
+            System.out.println("Dump to file:"+file.getPath());
 
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "
