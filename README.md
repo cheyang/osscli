@@ -1,13 +1,13 @@
 
 ## Setup
 
-1.创建项目
+1. Setup
 
 ```
 mvn archetype:generate -DgroupId=com.aliyun.osscli -DartifactId=osscli -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 
-2.编译和打包
+2. Build package
 
 ```
 mvn compile
@@ -16,16 +16,17 @@ mvn package
 mvn  -T 2C clean install
 ```
 
-3.测试Hello
+3.Test Hello world
 
 ```
 java -cp osscli-1.0-SNAPSHOT.jar com.aliyun.osscli.App
 Hello World!
 ```
 
-4.测试访问oss
+4.Test OSS client
 
 ···
+export 
 java -jar osscli-1.0-SNAPSHOT-jar-with-dependencies.jar
 ···
 
