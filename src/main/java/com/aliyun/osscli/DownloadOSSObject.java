@@ -86,7 +86,7 @@ public class DownloadOSSObject {
             // Sets the part size, by default it's 100K.
             downloadFileRequest.setPartSize(1024 * 1024 * partSize);
             // Set the download file
-            downloadFile.setDownloadFile(key)
+            downloadFile.setDownloadFile(key);
             // Enable checkpoint. By default it's false.
             downloadFileRequest.setEnableCheckpoint(false);
 
