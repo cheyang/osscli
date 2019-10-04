@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-04 07:55:47
+* @Last Modified time: 2019-10-04 08:34:54
 */
 
 
@@ -55,8 +55,8 @@ public class GetOSSObject {
             return;
         }
 
-        bucketName=args[0]
-        key=args[1]
+        bucketName=args[0];
+        key=args[1];
 
         /*
          * Constructs a client instance with your account for accessing OSS

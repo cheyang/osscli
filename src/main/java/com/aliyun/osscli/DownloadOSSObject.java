@@ -55,8 +55,8 @@ public class DownloadOSSObject {
             return;
         }
 
-        bucketName=args[0]
-        key=args[1]
+        bucketName=args[0];
+        key=args[1];
 
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
         
