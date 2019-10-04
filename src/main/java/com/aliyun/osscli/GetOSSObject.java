@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-04 09:07:00
+* @Last Modified time: 2019-10-04 09:07:41
 */
 
 
@@ -61,7 +61,7 @@ public class GetOSSObject {
 
         boolean metadata = false;
 
-        ObjectMetadata meta;
+        ObjectMetadata meta = null;
 
         try{
             metadata=Boolean.valueOf(args[3]);
