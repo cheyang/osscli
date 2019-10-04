@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-04 12:08:57
+* @Last Modified time: 2019-10-04 12:15:03
 */
 
 
@@ -91,6 +91,8 @@ public class GetOSSObject {
             // OSSObject object = ossClient.getObject(bucketName, key);
             GetObjectRequest request = new GetObjectRequest(bucketName, key);
 
+            File file = new File(key);
+
             meta = ossClient.getObject(request, key);
             System.out.println("Download time in ms = "+(System.currentTimeMillis()-start));
             if (metadata) {
@@ -98,7 +100,9 @@ public class GetOSSObject {
             }
             // System.out.println("Content-Type: "  + object.getObjectMetadata().getContentType());
             // System.out.println("Size: "+ object.getObjectMetadata().getContentLength());
-
+            System.out.println("Content-Type: "  + meta.getContentType());
+            System.out.println("Size: "+ meta.getContentLength());
+            System.out.println("Dump to file:"+file.getPath())
 
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "
