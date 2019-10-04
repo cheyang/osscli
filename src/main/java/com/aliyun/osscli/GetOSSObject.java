@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-04 09:07:41
+* @Last Modified time: 2019-10-04 12:05:59
 */
 
 
@@ -31,6 +31,7 @@ import com.aliyun.oss.model.ObjectAcl;
 import com.aliyun.oss.model.ObjectListing;
 import com.aliyun.oss.model.PutObjectRequest;
 import com.aliyun.oss.model.ObjectMetadata;
+import com.aliyun.oss.model.GetObjectRequest;
 
 /**
  * This sample demonstrates how to get started with basic requests to Aliyun OSS 
@@ -87,13 +88,16 @@ public class GetOSSObject {
             if (metadata){
                meta = ossClient.getObjectMetadata(bucketName, key);
             }
-            OSSObject object = ossClient.getObject(bucketName, key);
+            // OSSObject object = ossClient.getObject(bucketName, key);
+            ObjectRequest request = new GetObjectRequest(bucketName, key)
+
+            meta = ossClient.getObject(request, key);
             System.out.println("Download time in ms = "+(System.currentTimeMillis()-start));
             if (metadata) {
                 System.out.println("size: "  + meta.getContentLength());
             }
-            System.out.println("Content-Type: "  + object.getObjectMetadata().getContentType());
-            System.out.println("Size: "+ object.getObjectMetadata().getContentLength());
+            // System.out.println("Content-Type: "  + object.getObjectMetadata().getContentType());
+            // System.out.println("Size: "+ object.getObjectMetadata().getContentLength());
 
 
         } catch (OSSException oe) {
@@ -114,5 +118,19 @@ public class GetOSSObject {
              */
             ossClient.shutdown();
         }
+    }
+
+
+    private static void displayTextInputStream(InputStream input) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) break;
+
+            System.out.println("    " + line);
+        }
+        System.out.println();
+        
+        reader.close();
     }
 }
