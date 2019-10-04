@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-04 09:04:29
+* @Last Modified time: 2019-10-04 09:07:00
 */
 
 
@@ -30,6 +30,7 @@ import com.aliyun.oss.model.OSSObjectSummary;
 import com.aliyun.oss.model.ObjectAcl;
 import com.aliyun.oss.model.ObjectListing;
 import com.aliyun.oss.model.PutObjectRequest;
+import com.aliyun.oss.model.ObjectMetadata;
 
 /**
  * This sample demonstrates how to get started with basic requests to Aliyun OSS 
@@ -59,6 +60,8 @@ public class GetOSSObject {
         key=args[1];
 
         boolean metadata = false;
+
+        ObjectMetadata meta;
 
         try{
             metadata=Boolean.valueOf(args[3]);
