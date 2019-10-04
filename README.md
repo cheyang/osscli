@@ -11,6 +11,7 @@ mvn archetype:generate -DgroupId=com.aliyun.osscli -DartifactId=osscli -Darchety
 
 ```
 mvn compile
+mvn assembly:assembly
 mvn package
 mvn  -T 2C clean install
 ```

@@ -57,6 +57,23 @@ public class DownloadOSSObject {
 
         bucketName=args[0];
         key=args[1];
+        int num = 5
+
+        try{
+        	num=Integer.parseInt(args[2])
+        	System.out.println("Use num: ", num)
+        }catch(Throwable e){
+        	System.out.println("Use default num 5")
+        }
+
+        long partSize = 64
+
+        try{
+        	partSize=Integer.parseLong(args[3])
+        	System.out.println("Use part size: ", partSize)
+        }catch(Throwable e){
+        	System.out.println("Use default part siz 64MB")
+        }
 
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
         
@@ -65,9 +82,9 @@ public class DownloadOSSObject {
             // Sets the local file to download to
             downloadFileRequest.setDownloadFile(downloadFile);
             // Sets the concurrent task thread count 5. By default it's 1.
-            downloadFileRequest.setTaskNum(5);
+            downloadFileRequest.setTaskNum(num);
             // Sets the part size, by default it's 100K.
-            downloadFileRequest.setPartSize(1024 * 1024 * 64);
+            downloadFileRequest.setPartSize(1024 * 1024 * partSize);
             // Enable checkpoint. By default it's false.
             downloadFileRequest.setEnableCheckpoint(true);
 
