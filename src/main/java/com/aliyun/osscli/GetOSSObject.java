@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-04 12:07:31
+* @Last Modified time: 2019-10-04 12:08:57
 */
 
 
@@ -89,7 +89,7 @@ public class GetOSSObject {
                meta = ossClient.getObjectMetadata(bucketName, key);
             }
             // OSSObject object = ossClient.getObject(bucketName, key);
-            ObjectRequest request = new GetObjectRequest(bucketName, key);
+            GetObjectRequest request = new GetObjectRequest(bucketName, key);
 
             meta = ossClient.getObject(request, key);
             System.out.println("Download time in ms = "+(System.currentTimeMillis()-start));
