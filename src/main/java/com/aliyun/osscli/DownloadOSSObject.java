@@ -69,7 +69,7 @@ public class DownloadOSSObject {
         long partSize = 64;
 
         try{
-        	partSize=Integer.parseLong(args[3]);
+        	partSize=Long.parseLong(args[3]);
         	System.out.println("Use part size: " + partSize);
         }catch(Throwable e){
         	System.out.println("Use default part siz 64MB");
