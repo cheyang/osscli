@@ -61,7 +61,7 @@ public class DownloadOSSObject {
 
         try{
         	num=Integer.parseInt(args[2]);
-        	System.out.println("Use num: ", num);
+        	System.out.println("Use num: " + num);
         }catch(Throwable e){
         	System.out.println("Use default num 5");
         }
@@ -70,7 +70,7 @@ public class DownloadOSSObject {
 
         try{
         	partSize=Integer.parseLong(args[3]);
-        	System.out.println("Use part size: ", partSize);
+        	System.out.println("Use part size: " + partSize);
         }catch(Throwable e){
         	System.out.println("Use default part siz 64MB");
         }
