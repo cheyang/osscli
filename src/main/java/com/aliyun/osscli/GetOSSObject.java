@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-04 09:00:15
+* @Last Modified time: 2019-10-04 09:01:24
 */
 
 
@@ -61,7 +61,7 @@ public class GetOSSObject {
         bool metadata = false;
 
         try{
-            metadata=Integer.parseLong(args[3])
+            metadata=Integer.parseLong(args[3]);
             System.out.println("Download the metadata: "+ metadata);
         }catch(Throwable e){
             System.out.println("Download the metadata: false");
@@ -81,12 +81,12 @@ public class GetOSSObject {
              */
             System.out.println("Downloading an object");
             long start = System.currentTimeMillis();
-            if metadata {
+            if (metadata){
                meta = ossClient.getObjectMetadata(bucketName, key);
             }
             OSSObject object = ossClient.getObject(bucketName, key);
             System.out.println("Download time in ms = "+(System.currentTimeMillis()-start));
-            if metadata {
+            if (metadata) {
                 System.out.println("size: "  + meta.getContentLength());
             }
             System.out.println("Content-Type: "  + object.getObjectMetadata().getContentType());
