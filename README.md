@@ -25,6 +25,6 @@ Hello World!
 4.测试访问oss
 
 ···
-
+java -jar osscli-1.0-SNAPSHOT-jar-with-dependencies.jar
 ···
 
