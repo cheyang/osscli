@@ -4,7 +4,7 @@ package com.aliyun.osscli;
 * @Author: cheyang
 * @Date:   2019-10-03 23:35:48
 * @Last Modified by:   cheyang
-* @Last Modified time: 2019-10-04 08:55:52
+* @Last Modified time: 2019-10-04 08:56:53
 */
 
 
@@ -58,13 +58,13 @@ public class GetOSSObject {
         bucketName=args[0];
         key=args[1];
 
-        bool metadata = false
+        bool metadata = false;
 
         try{
             metadata=Integer.parseLong(args[3])
-            System.out.println("Download the metadata: ", metadata)
+            System.out.println("Download the metadata: ", metadata);
         }catch(Throwable e){
-            System.out.println("Download the metadata: false")
+            System.out.println("Download the metadata: false");
         }
 
         /*

@@ -57,22 +57,22 @@ public class DownloadOSSObject {
 
         bucketName=args[0];
         key=args[1];
-        int num = 5
+        int num = 5;
 
         try{
-        	num=Integer.parseInt(args[2])
-        	System.out.println("Use num: ", num)
+        	num=Integer.parseInt(args[2]);
+        	System.out.println("Use num: ", num);
         }catch(Throwable e){
-        	System.out.println("Use default num 5")
+        	System.out.println("Use default num 5");
         }
 
-        long partSize = 64
+        long partSize = 64;
 
         try{
-        	partSize=Integer.parseLong(args[3])
-        	System.out.println("Use part size: ", partSize)
+        	partSize=Integer.parseLong(args[3]);
+        	System.out.println("Use part size: ", partSize);
         }catch(Throwable e){
-        	System.out.println("Use default part siz 64MB")
+        	System.out.println("Use default part siz 64MB");
         }
 
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
