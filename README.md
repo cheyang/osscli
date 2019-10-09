@@ -54,6 +54,9 @@ Size: 136977679
 6. Test OSS client to download Object in multiple threads
 
 ``` 
-java -cp osscli-1.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.DownloadOSSObject imagenet-huabei5 train-00760-of-01024
+java -cp osscli-1.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.DownloadOSSObject imagenet-huabei5 images/train-00760-of-01024
+
+
+java -cp osscli-1.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.DownloadOSSObject imagenet-huabei5 images/train-00760-of-01024 8 2
 ```
 
