@@ -1,9 +1,6 @@
 package com.aliyun.osscli;
 
-import com.aliyun.oss.ClientException;
-import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.OSSException;
+import com.aliyun.oss.*;
 import com.aliyun.oss.model.DownloadFileRequest;
 import com.aliyun.oss.model.DownloadFileResult;
 import com.aliyun.oss.model.ObjectMetadata;
@@ -68,7 +65,12 @@ public class DownloadPartOSSObject {
             System.out.println("Use default part size: 64MB");
         }
 
-        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+        ClientBuilderConfiguration config = new ClientBuilderConfiguration();
+        config.setCrcCheckEnabled(false);
+
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret, config);
+
+
 
         try {
             DownloadFileRequest downloadFileRequest = new DownloadFileRequest(bucketName, key);
