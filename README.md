@@ -58,5 +58,8 @@ java -cp osscli-1.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.Downloa
 
 
 java -cp osscli-1.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.DownloadOSSObject imagenet-huabei5 images/train-00760-of-01024 8 2
+
+
+java -cp osscli-1.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.DownloadPartOSSObject
 ```
 
