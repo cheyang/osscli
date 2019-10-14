@@ -78,7 +78,7 @@ public class GetOSSObject {
 
         try{
             endPos=Long.parseLong(args[4]);
-            System.out.println("Use end Pos: " + startPos);
+            System.out.println("Use end Pos: " + endPos);
         }catch(Throwable e){
             System.out.println("Use default end Pos: -1");
         }
