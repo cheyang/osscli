@@ -50,6 +50,8 @@ public class GetOSSObject {
         endpoint = System.getenv("ENDPOINT");
         accessKeyId = System.getenv("KEY_ID");
         accessKeySecret = System.getenv("KEY_SECRET");
+        long startPos =0;
+        long endPos = -1;
 
 
         if (args.length < 2){
@@ -62,10 +64,24 @@ public class GetOSSObject {
 
         boolean metadata = false;
 
+        try{
+            startPos=Long.parseLong(args[3]);
+            System.out.println("Use start Pos: " + startPos);
+        }catch(Throwable e){
+            System.out.println("Use default start Pos: 0");
+        }
+
+        try{
+            endPos=Long.parseLong(args[3]);
+            System.out.println("Use end Pos: " + startPos);
+        }catch(Throwable e){
+            System.out.println("Use default end Pos: -1");
+        }
+
         ObjectMetadata meta = null;
 
         try{
-            metadata=Boolean.valueOf(args[3]);
+            metadata=Boolean.valueOf(args[5]);
             System.out.println("Download the metadata: "+ metadata);
         }catch(Throwable e){
             System.out.println("Download the metadata: false");
@@ -90,6 +106,7 @@ public class GetOSSObject {
             }
             // OSSObject object = ossClient.getObject(bucketName, key);
             GetObjectRequest request = new GetObjectRequest(bucketName, key);
+            request.setRange(startPos, endPos);
 
             File file = new File(key);
             file.getParentFile().mkdirs();
