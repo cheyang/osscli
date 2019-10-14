@@ -30,6 +30,7 @@ import com.aliyun.oss.model.OSSObjectSummary;
 import com.aliyun.oss.model.ObjectAcl;
 import com.aliyun.oss.model.ObjectListing;
 import com.aliyun.oss.model.PutObjectRequest;
+import com.aliyun.oss.ClientBuilderConfiguration;
 import com.aliyun.oss.model.ObjectMetadata;
 import com.aliyun.oss.model.GetObjectRequest;
 
@@ -50,8 +51,12 @@ public class GetOSSObject {
         endpoint = System.getenv("ENDPOINT");
         accessKeyId = System.getenv("KEY_ID");
         accessKeySecret = System.getenv("KEY_SECRET");
+
         long startPos =0;
         long endPos = -1;
+
+        ClientBuilderConfiguration config = new ClientBuilderConfiguration();
+        config.setCrcCheckEnabled(false);
 
 
         if (args.length < 2){
@@ -90,7 +95,7 @@ public class GetOSSObject {
         /*
          * Constructs a client instance with your account for accessing OSS
          */
-        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret, config);
 
         System.out.println("Getting Started with OSS SDK for Java\n");
 
