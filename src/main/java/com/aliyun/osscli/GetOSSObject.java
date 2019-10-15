@@ -17,10 +17,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
-import com.aliyun.oss.ClientException;
-import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.OSSException;
+import com.aliyun.oss.*;
 import com.aliyun.oss.model.Bucket;
 import com.aliyun.oss.model.CannedAccessControlList;
 import com.aliyun.oss.model.CreateBucketRequest;
@@ -64,8 +61,23 @@ public class GetOSSObject {
 
         ObjectMetadata meta = null;
 
+        long start=0, end =-1;
         try{
-            metadata=Boolean.valueOf(args[3]);
+            start=Integer.parseInt(args[2]);
+            System.out.println("Use start: " + start);
+        }catch(Throwable e){
+            System.out.println("Use default start: 0");
+        }
+
+        try{
+            end=Integer.parseInt(args[3]);
+            System.out.println("Use end: " + end);
+        }catch(Throwable e){
+            System.out.println("Use default end: -1");
+        }
+
+        try{
+            metadata=Boolean.valueOf(args[5]);
             System.out.println("Download the metadata: "+ metadata);
         }catch(Throwable e){
             System.out.println("Download the metadata: false");
@@ -74,7 +86,9 @@ public class GetOSSObject {
         /*
          * Constructs a client instance with your account for accessing OSS
          */
-        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+        ClientBuilderConfiguration config = new ClientBuilderConfiguration();
+        config.setCrcCheckEnabled(false);
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret, config);
 
         System.out.println("Getting Started with OSS SDK for Java\n");
 
@@ -93,6 +107,8 @@ public class GetOSSObject {
 
             File file = new File(key);
             file.getParentFile().mkdirs();
+
+            request.setRange(start, end);
 
             meta = ossClient.getObject(request, file);
             System.out.println("Download time in ms = "+(System.currentTimeMillis()-start));

@@ -66,7 +66,7 @@ public class DownloadPartOSSObject {
         }
 
         ClientBuilderConfiguration config = new ClientBuilderConfiguration();
-        config.setCrcCheckEnabled(false);
+        config.setCrcCheckEnabled(true);
 
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret, config);
 
