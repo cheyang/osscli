@@ -61,17 +61,17 @@ public class GetOSSObject {
 
         ObjectMetadata meta = null;
 
-        long start=0, end =-1;
+        long startPos=0, endPos =-1;
         try{
-            start=Integer.parseInt(args[2]);
-            System.out.println("Use start: " + start);
+            startPos=Integer.parseInt(args[2]);
+            System.out.println("Use start: " + startPos);
         }catch(Throwable e){
             System.out.println("Use default start: 0");
         }
 
         try{
-            end=Integer.parseInt(args[3]);
-            System.out.println("Use end: " + end);
+            endPos=Integer.parseInt(args[3]);
+            System.out.println("Use end: " + endPos);
         }catch(Throwable e){
             System.out.println("Use default end: -1");
         }
@@ -108,7 +108,7 @@ public class GetOSSObject {
             File file = new File(key);
             file.getParentFile().mkdirs();
 
-            request.setRange(start, end);
+            request.setRange(startPos, endPos);
 
             meta = ossClient.getObject(request, file);
             System.out.println("Download time in ms = "+(System.currentTimeMillis()-start));
