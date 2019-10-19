@@ -55,22 +55,20 @@ Size: 136977679
 
 ``` 
 java -cp osscli-1.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.DownloadOSSObject imagenet-huabei5 images/train-00760-of-01024
+Use default num 5
+Use default part size: 64MB
+Download time in ms = 974
+D8F69CE8F96710BB6FB620B99D17E717-54
+Sun Oct 06 23:26:17 GMT 2019
+null
 
 
-java -cp osscli-1.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.DownloadOSSObject imagenet-huabei5 images/train-00760-of-01024 8 2
-
-
+java -cp osscli-1.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.DownloadOSSObject imagenet-huabei5 images/train-00760-of-01024 8 16
+Use num: 8
+Use part size: 16
+Download time in ms = 455
+D8F69CE8F96710BB6FB620B99D17E717-54
+Sun Oct 06 23:26:17 GMT 2019
+null
 ```
 
-
-7. Download new jar
-
-```
-wget http://kubeflow.oss-cn-beijing.aliyuncs.com/osscli-2.0-SNAPSHOT-jar-with-dependencies.jar
-```
-
-8. Test OSS client to download part Object in multiple threads
-
-```
-java -cp osscli-2.0-SNAPSHOT-jar-with-dependencies.jar com.aliyun.osscli.DownloadPartOSSObject  test-huabei5 test.txt 0 12
-```
